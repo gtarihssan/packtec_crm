@@ -1,0 +1,109 @@
+{% extends 'display.html' %}
+{% load static %}
+
+{% block containe %}
+<link rel="stylesheet" href="{% static 'styles/calendarrr.css' %}">
+<script src="{% static 'js/jquery-3.6.3.min.js' %}" ></script>
+<script src="{% static 'js/calendarrr.js' %}" ></script>
+
+<div class="calendar_temp">
+    
+
+    <section class="action">
+        
+        <span class="action_buttons">
+            holiday form
+        </span>
+        <span class="message">
+            messages
+        </span>
+        <div class="date_form" >
+            <section class="holidays_list" style="display: none;">
+                {% if holidays %}
+                    {%for holiday in holidays%}
+                        {{holiday.first_day}} <br> <!-- to style the list-->
+                        {{holiday.last_day}} <br>
+                        {{holiday.occasion}} <br>
+                        {{holiday.days_number}}
+                    {% endfor %}
+                {% else %}    
+                no holidays
+                {% endif %}
+            </section>
+            <section class="holidays_form">
+                {% csrf_token %}
+                <input type="text" class='occasion' placeholder='titre'> <br>
+                <input type="text" class='h_date' id="start" placeholder='date debut' readonly> <br>
+                <input type="text" class='h_date' id="end" placeholder='date fin' readonly> <br>
+                <button class="submit_date">submit</button>
+            </section>
+        </div>
+        
+    </section>
+
+
+    <section class="calendar">
+
+        <section class="calendar_header" >
+            <span class="year" >
+                <img class="calendar_icon_y_l" src="{% static 'images/calendar_prev.png' %}" alt="">
+                <span class="year_selected" data-value="2023"> <!-- to fix -->
+                    2023
+                </span>
+                <img class="calendar_icon_y_r"  src="{% static 'images/calendar_next.png' %}" alt="">
+            </span>
+            <span class="month">
+                <img class="calendar_icon_m_l" src="{% static 'images/calendar_prev.png' %}" alt="">
+                
+                <!-------->
+                <span class="month_selected" data-value="01"> <!-- to fix -->
+                    janvier
+                </span>
+                <img class="calendar_icon_m_r"  src="{% static 'images/calendar_next.png' %}" alt="">
+            </span>
+            
+        </section>
+    
+        <section class="calendar_containe" >
+            <section class="weeks" >
+                <p class="no_date">lun</p>
+                <p class="no_date">mar</p>
+                <p class="no_date">mer</p>
+                <p class="no_date">jeu</p>
+                <p class="no_date">vend</p>
+                <p class="no_date">sam</p>
+                <p class="no_date">dim</p>
+            </section>
+            <section class="first_week">
+                {% for i in first_week %}
+                    {% if i|add:b_days < 0 %}
+                        <p class="no_date" style="background: linear-gradient(45deg, #cccccc 50%, transparent 10%, transparent 75%, #cccccc 50%); padding-top: 35px;" ></p>
+                    {% else %}
+                        <p>{{ i|add:b_days|add:1 }}</p>
+                    {% endif %}    
+                {% endfor %}
+                </section>
+
+            {% for week in rest_weeks %}    
+                <section class="rest_weeks" >
+                    {% for day in week %}
+                        <p>{{day}}</p>
+                        {% if day == month_days %}
+                            {% for lday in last_days %}
+                                <p>0</p>
+                            {% endfor %}
+                        {% endif %}    
+                    {% endfor %}   
+
+                </section>
+            {% endfor %}
+        </section>
+    
+
+    
+    </section>
+</div>
+
+
+
+{% endblock %}

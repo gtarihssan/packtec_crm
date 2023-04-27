@@ -1,0 +1,58 @@
+{% extends 'display.html' %}
+{% load static %}
+{% if request.user.employer.categorie == admin %}
+{% block containe %}
+<script src="{% static 'js/jquery-3.6.3.min.js' %}" ></script>
+<script src="{% static 'js/models_list.js' %}" ></script>
+<link rel="stylesheet" href="{% static 'styles/listss.css' %}">
+<div class="matriel">
+    <section class="user_info">
+        <h3>matriel</h3>
+    </section>
+
+    <form action="{% url 'delete_materiaux' %}" method="POST">
+                {% csrf_token %}
+            <div class="table">
+                <section class="header_of_table">
+                    <p style="width: 30px; border-color: transparent ;" ></p>
+                    <p class="operations">
+                        <button type="button" class="add_button" data-href="{% url 'add_materiaux' %}"><img src="{% static 'images/add.png' %}" ></button>
+                                <button><img src="{% static 'images/edit.png' %}" alt=""></button>
+                        <button type="submit" ><img src="{% static 'images/remove.png' %}" alt=""></button>
+                    </p>
+                    <p></p>
+                    <p></p>
+                    <p></p>
+                    <p></p>
+                    <p></p>
+                </section>
+            </form>
+        <section class="header_of_table">
+            <p style="width: 30px; border-color: transparent ;" ></p>
+            <p>materiaux illustration</p>
+            <p>id</p>
+            <p>nom</p>
+            <p>type</p>
+            <p>suffix</p>
+            <p>delai</p>
+        </section>
+
+        {% for matriel in materiels %}
+            <section class="single_emp">
+                <p style="width: 30px; border-color: transparent ;" ><input type="checkbox" value="{{matriel.id}}" name="models_ids"></p>
+                <p>materiel image</p>
+                <p>{{matriel.id}}</p>
+                <p>{{matriel.nom}}</p>
+                <p>{{matriel.type}}</p>
+                <p>{{matriel.suffix}}</p>
+                <p>{{matriel.delai}}</p>
+                
+            </section>
+        {% endfor %}
+    </div>
+   
+</div>
+{% endblock %}
+{% else %}
+<h1>sorry you cannot be here </h1>
+{% endif %}

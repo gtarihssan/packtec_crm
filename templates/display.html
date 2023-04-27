@@ -1,0 +1,61 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>packtek</title>
+</head>
+<body>
+    <link rel="stylesheet" href="{% static 'styles/displays.css' %}">
+
+    
+    <div class="nav-bar">
+        <a href="{% url 'index' %}">        
+            <img src="{% static 'images/logo-packtec.svg' %}" alt="">
+        </a>
+        <section class="drop_menu">
+            <span class="drop_menu_icon">
+                <span>menu</span>
+                <img src="{% static 'images/drop_icon.png' %}" alt="">
+            </span>
+            <div class="drop_menu_options">
+                <h5 class="h"><p>profile</p></h5>  
+                <a href="{% url 'holidays_list' %}"><h5 class="h"><p>les vacances</p></h5>   </a>   
+                <h5 class="h"><p>option 1</p></h5>    
+                <a href="{% url 'logout' %}"><h5 class="h"><p>logout</p></h5> </a>   
+                    
+            </div>
+        </section>
+        <script src="{% static 'js/jquery-3.6.3.min.js' %}" ></script>
+<script src="{% static 'js/display.js' %}" ></script>
+        <section class="menu">
+            {% if request.user.employer.categorie == 'admin' %}
+            
+                <link rel="stylesheet" href="{% static 'styles/indexxx.css' %}">
+                <section class="sub_menu">
+                    <a href="{% url 'employers' %}"><h4 class="employeurs">employers </h4></a>
+                    <a href="{% url 'materiaux' %}"><h4 class="materiel">materiaux </h4></a>
+                    <h4 class="dossier">dossier </h4>
+                    <a href="{% url 'calendrier' %}"><h4 class="calendrie">calendrie</h4></a>
+                </section>
+                <script src="{% static 'js/jquery-3.6.3.min.js' %}" ></script>
+                <script src="{% static 'js/index.js' %}" ></script>
+            {% endif %}    
+            
+            
+        </section>
+
+    </div>
+
+    <div class="containe">
+        {% block containe %}
+        {% endblock %}
+    </div>
+
+
+</body>
+
+</html>

@@ -1,0 +1,27 @@
+{% extends 'display.html' %}
+{% load static %}
+
+<!-- working on the nav-bar conditions ... -->
+
+<!--admin-->
+
+{% block containe %}
+{% for message in messages %}
+    {% if message %}
+        <span class="message">{{ message }}</span> <!-- to style it with css and dispaly it withh jquery-->
+    {% endif %}
+{% endfor %}
+{% endblock %}
+{% if request.user.employer.categorie == 'admin' %}
+
+<!--directuer-->
+
+
+{% elif categorie == 'directeur' %}
+    <h1>categorie directeur interface</h1>
+{% elif categorie == 3 %}
+    <h1>categorie 3 interface</h1>
+{% elif categorie == 4 %}
+    <h1>categorie 4 interface</h1>
+{% endif %}
+

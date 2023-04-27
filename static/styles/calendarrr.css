@@ -1,0 +1,176 @@
+
+.calendar_temp{
+    display: grid;
+    grid-template-columns: 30% 70%;
+    width: 1000px;
+    height: 500px;
+    font-style: 'Almarai', sans-serif;
+    font-weight: 700;
+    font-size: medium;
+    margin: 20px;
+
+}
+
+/* Add more styles for other .rest_weeks sections if needed */
+
+.calendar{
+    grid-column-start: 2;
+    grid-column-end: 3;
+    display: grid;
+    grid-template-rows: 20% 80%;
+}
+
+
+.calendar_header{
+    display: grid;
+    grid-template-rows: 50% 50%;
+
+}
+
+.calendar_header .year_selected{
+    margin-left: 38px;
+    margin-right: 38px;
+    font-size: larger;
+}
+
+.calendar_header .year{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.calendar_header .month_selected{
+    margin-left: 30px;
+    margin-right: 60px;
+    width: 30px;
+    float: right;
+    font-size: larger;
+}
+
+.calendar_header .month{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.calendar_header img{
+    height: 35px;
+    width: 35px;
+}
+
+
+.calendar_containe .weeks {
+    display: flex;
+    align-items: center;
+}
+
+.calendar_containe .weeks p{
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background-color: #90292bd2;
+    color: white;
+}
+
+.calendar_containe .first_week {
+    display: flex;
+    align-items: center;
+
+}
+.calendar_containe .rest_weeks {
+    display: flex;
+    align-items: center;
+}
+
+.calendar p{
+    border: solid 0.3mm;
+    padding: 17px;
+    width: 63px;
+    margin: 4px;
+    box-shadow: 0 0 10px rgba(88, 86, 86, 0.661);
+    font-weight: 600;
+    font-size: medium;
+
+}
+
+.calendar_containe{ 
+    border: solid 0.3mm white ;
+    margin-top: 5px;
+}
+
+.date_form{
+    border: solid 0.3mm;
+    padding-top: 15px;
+    grid-row-start: 3;
+    grid-row-end: 4;
+    background-color: #b38b8cc2;
+    position: relative;
+
+}
+
+.holidays_form{
+    margin-top: 40px;
+}
+
+.date_form input{
+    padding: 5px;
+    margin-bottom: 15px;
+}
+
+.date_form input::placeholder{
+    color: #254457;
+}
+
+
+.date_form .occasion{
+    width: 250px;
+    height: 20px;
+    border: none;
+    border-bottom:solid ;
+    background-color: #B38B8C;
+    color: white;
+    text-align: center;
+    font-weight: 400;
+    font-size: large;
+}
+
+.date_form .occasion:focus{
+    outline: none; /* to remove the default focus outline */
+    border-bottom: solid #44FCC7;
+}
+
+.date_form .occasion:focus::placeholder{
+    color: transparent;
+    transition: color 0.5s;
+}
+
+.date_form .h_date{
+    pointer-events:none;
+    border: none;
+    border-bottom: solid;
+    
+}
+
+
+.action{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    border: solid 0.3mm;
+    display: grid;
+    grid-template-rows: 70px 50px auto;
+}
+
+.action_buttons{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.action_buttons button{
+    margin: 0 10px;
+    height: 30px;
+    align-self: center; /* to center them vertically */
+}
+
+.holidays_form .submit_date{
+    padding: 5px;
+    width: 100px;
+}

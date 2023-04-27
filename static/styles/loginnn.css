@@ -1,0 +1,106 @@
+
+
+body {
+background-image: url("/static/images/login-background.png");
+background-repeat: no-repeat;
+font-family: 'Almarai', sans-serif;
+
+font-size: 21px;
+}
+
+.all{
+    display: grid;
+    grid-template-rows: 60px auto ;
+    margin-left: 925px;
+    margin-top: 180px;
+    width: 350px;
+    align-items: center;
+}
+
+.message{
+    grid-row-start: 1;
+    grid-row-end: 2;
+    border: none 0.3mm;
+    border-radius: 5px ;
+    height: 40px;
+    width: 340px;
+    padding-top: 15px;
+    padding-bottom: 0;
+    margin-bottom: 40px;
+    margin-top: 0;
+    font-size: 18px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    background-color: #cf958d87;
+    color: rgb(254, 197, 197);
+}
+
+.login-form{
+    grid-row-start: 2;
+    grid-row-end: 3;
+    padding: 20px;
+    padding-top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: solid 0.3cm rgba(96, 96, 96, 0.83);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    border-width:0.3mm;
+    height: 270px;
+    width: 300px;
+    background-color: rgba(255, 230, 215, 0.439);
+    border-radius: 10px;
+}
+
+
+
+.login-form p{
+    font-weight: 450;
+    padding-bottom: 20px;
+    text-decoration: underline;
+    margin-bottom: 3px;
+    color: rgb(255, 255, 255);
+
+}
+
+.login-form .inputs{
+    text-align: center;
+}
+
+.login-form input:not(.submit-button){
+    margin: 14px 15px;
+    background-color:rgba(70, 65, 65, 0.446);
+    border-radius: 5px;
+    width: 200px;
+    font-size: medium;
+    font-weight: 300;
+    padding-left: 50px;
+    padding: 5px;
+    border: none;
+    border-left: solid 0.2cm rgb(201, 169, 147);
+    height: 25px;
+
+}
+
+.login-form input::placeholder{
+    color: rgb(255, 255, 255);
+    opacity: 0.75;
+
+}
+
+
+
+.submit-button{
+    padding: 4px;
+    margin-top: 14px;
+    width: 130px;
+    background-color: #f6f3e48d;
+    border-radius: 5px;
+    border:solid 0.3mm #f6f3e4;
+    font-size:medium;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.801);
+    text-align: center;
+}
+
+

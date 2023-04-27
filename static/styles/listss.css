@@ -1,0 +1,85 @@
+
+
+.operations{
+    display: flex;
+}
+.add_employer p{
+    margin: 0;
+    margin-top: 2px;
+    margin-left: 1px;   
+    padding: 0;
+}
+.add_employer{
+    height: 23px;
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    float: left;
+    background-color: rgb(149, 156, 156);
+    gap: 7px;
+    padding: 3px;
+    margin-top: 5px;
+    color: rgb(255, 255, 255)    ;
+    border-radius: 10px;
+}
+
+.table{
+    height: auto;
+    font-family: 'Almarai', sans-serif;
+    font-weight: 600;
+    font-size: medium;  
+    
+}
+
+.header_of_table{
+    display: flex;
+    justify-content: space-evenly;
+    text-align: center;
+    min-width: 60px;
+    color: rgba(77, 59, 59, 0.759);  
+}
+
+.header_of_table img{
+    height:25px;
+    width: 25px;
+}
+
+.header_of_table:nth-child(1) p{
+    border-color: transparent;
+}
+
+.header_of_table .operations {
+    display: flex;
+    justify-content: space-between;
+}
+
+.header_of_table p{
+    border: solid gray 0.3mm;
+    margin: 0;
+    padding: 10px;
+    width: 150px; 
+
+}
+
+
+.single_emp{
+    display: flex;
+    justify-content: space-evenly;
+    text-align: center;
+    min-width: 60px;
+    color: rgba(77, 59, 59, 0.759);  
+}
+
+
+
+.single_emp p{
+    border: solid gray 0.3mm;
+    margin: 0;
+    padding: 10px;
+    width: 150px; 
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: none;
+}

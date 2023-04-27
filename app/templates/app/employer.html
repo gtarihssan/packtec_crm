@@ -1,0 +1,63 @@
+{% extends 'display.html' %}
+{% load static %}
+{% if request.user.employer.categorie == admin %}
+{% block containe %}
+<script src="{% static 'js/jquery-3.6.3.min.js' %}" ></script>
+<script src="{% static 'js/models_listss.js' %}" ></script>
+<link rel="stylesheet" href="{% static 'styles/listss.css' %}">
+    <div class="employers">
+        <section class="user_info">
+            <h3 class="emp">empoyers</h3>
+            </section>
+
+            <form action="{% url 'delete_employers' %}" method="POST">
+                {% csrf_token %}
+            <div class="table">
+                <section class="header_of_table">
+                    <p style="width: 30px; border-color: transparent ;" ></p>
+                    <p class="operations">
+                        <button type="button" class="add_button" data-href="{% url 'add_employer' %}"><img src="{% static 'images/add.png' %}" ></button>
+                        <button type="button" class="update_button" data-href="/update_employer/"><img src="{% static 'images/edit.png' %}" alt=""></button>
+                        {% csrf_token %}
+                        <button type="submit" ><img src="{% static 'images/remove.png' %}" alt=""></button>
+                    </p>
+                    <p></p>
+                    <p></p>
+                    <p></p>
+                    <p></p>
+                    <p></p>
+                </section>
+            </form>
+                <section class="header_of_table">
+                    <p style="width: 30px; border-color: transparent ;" ></p>
+                    <p>login</p>
+                    <p>mot de pass</p>
+                    <p>prenom</p>
+                    <p>nom</p>
+                    <p>direction</p>
+                    <p>categorie</p>
+                </section>
+
+                {% for employer in employeurs %}
+                    <section class="single_emp">
+                        <p style="width: 30px; border-color: transparent ;" ><input type="checkbox" value="{{employer.id}}" name="models_ids"></p>
+                        <p>{{employer.user.username}}</p>
+                        <p>{{employer.mdp}}</p>
+                        <p>{{employer.user.first_name}}</p>
+                        <p>{{employer.user.last_name}}</p>
+                        <p>{{employer.direction}}</p>
+                        <p>{{employer.categorie}}</p>   
+                    </section>
+                {% endfor %}
+        </div>
+        
+    </div>
+    <!--------------------------------------------------------->
+    <!--------------------------------------------------------->
+    <!--------------------------------------------------------->
+    
+
+{% endblock %}
+{% else %}
+<h1>sorry you cannot be here </h1>
+{% endif %}

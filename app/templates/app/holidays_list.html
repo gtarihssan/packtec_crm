@@ -1,0 +1,60 @@
+{% extends 'display.html' %}
+{% load static %}
+{% if request.user.employer.categorie == admin %}
+{% block containe %}
+<script src="{% static 'js/jquery-3.6.3.min.js' %}" ></script>
+<script src="{% static 'js/models_list.js' %}" ></script>
+<link rel="stylesheet" href="{% static 'styles/listss.css' %}">
+<div class="matriel">
+    <section class="user_info">
+        <h3>holidays</h3>
+    </section>
+
+    <div class="table">
+        
+        <form action="{% url 'delete_date' %}" method="POST">
+            {% csrf_token %}
+        <div class="table">
+            <section class="header_of_table">
+                <p style="width: 30px; border-color: transparent ;" ></p>
+                <p class="operations">
+                    <button type="button" class="add_button" data-href="{% url 'add_date' %}"><img src="{% static 'images/add.png' %}" ></button>
+                    <button><img src="{% static 'images/edit.png' %}" alt=""></button>
+                    <button type="submit" ><img src="{% static 'images/remove.png' %}" alt=""></button>
+                </p>
+                <p></p>
+                <p></p>
+                <p></p>
+                <p></p>
+                <p></p>
+            </section>
+        </form>
+        <section class="header_of_table">
+            <p style="width: 30px; border-color: transparent ;" ></p>
+            <p>occasion</p>
+            <p>date debut</p>
+            <p>date fin</p>
+            <p>nombre du jours total</p>
+            <p>nombre de week-ends</p>
+            <p>jours non payee</p>
+        </section>
+
+        {% for holiday in holidays %}
+            <section class="single_emp">
+                <p style="width: 30px; border-color: transparent ;" ><input type="checkbox" value="{{holiday.id}}" name="models_ids"></p>
+                <p>{{holiday.occasion}}</p>
+                <p>{{holiday.first_day}}</p>
+                <p>{{holiday.last_day}}</p>
+                <p>{{holiday.days|length}}</p>
+                <p>{{holiday.weekends|length}}</p>
+                <p>{{holiday.unpaid_day}}</p>
+                
+            </section>
+        {% endfor %}
+    </div>
+
+</div>
+{% endblock %}
+{% else %}
+<h1>sorry you cannot be here </h1>
+{% endif %}

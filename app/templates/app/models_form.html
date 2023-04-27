@@ -1,0 +1,24 @@
+{% extends 'display.html' %}
+{% load static %}
+{% block containe %}
+<link rel="stylesheet" href="{% static 'styles/add_employer.css' %}">
+<form method="post">
+    {% csrf_token %}
+    <div class="formm">
+        <span  class="message">
+            {% for message in messages %}
+                {% if message %}
+                    {{message}}
+                {% endif %}
+            {% endfor %}
+        </span>    
+        <span class="fromss" >  
+            {{ form.as_p }}
+            {{ employerforme.as_p }}
+            <button type="submit">Submit</button>
+        </span>
+       
+    </div>
+
+</form>
+{% endblock %}

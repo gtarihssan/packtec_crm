@@ -1,0 +1,39 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>packtec</title>
+    <script src="{% static 'js/jquery-3.6.3.min.js' %}" ></script>
+    <script src="{% static 'js/login.js' %}" ></script>
+
+    <link rel="stylesheet" href="{% static 'styles/loginnn.css' %}">
+</head>
+<body>
+    
+        <div class="all">
+            {% for message in messages %}
+                {% if message %}
+                    <p class="message" style="display:none;">
+                        {{message}}
+                    </p>
+                {% endif %}
+            {% endfor %}
+            <div class="login-form">
+                
+                    <div class="inputs">
+                        <form  method="POST" action="{% url 'login_user' %}">  
+                            {%csrf_token%}
+                            {{ form }} <br>
+                        <button type="submit" class="submit-button">login</button>
+                        </form>
+                    </div>            
+
+
+            </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,42 @@
+.formm{
+    width: 500px;
+    display: grid;
+    grid-template-rows: 20% 80%;
+
+}
+
+.message{
+
+    border: solid;
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+
+.formm .fromss{
+    grid-row-start: 2;
+    grid-row-end: 3;
+    border: solid;
+    height: 430px;
+}
+
+.formm input{
+    padding: 5px;
+    width: 200px;
+    text-align: center;
+    font-size: medium;
+    font-weight: 400;
+}
+
+
+
+.formm .select_input {
+    padding: 2px;
+    width: 150px;
+    float: right;
+    margin-right: 145px;
+}
+
+button {
+    width: 120px;
+    height: 25px;
+}
